@@ -1,0 +1,41 @@
+{
+  "error": null,
+  "result": {
+    "chk_in": "2026-11-20",
+    "chk_out": "2026-11-22",
+    "currency": "USD",
+    "rates": [
+      {
+        "code": "BookingCom",
+        "name": "Booking.com",
+        "rate": 323,
+        "tax": null
+      },
+      {
+        "code": "CtripTA",
+        "name": "Trip.com",
+        "rate": 306,
+        "tax": null
+      },
+      {
+        "code": "Agoda",
+        "name": "Agoda.com",
+        "rate": 349,
+        "tax": null
+      },
+      {
+        "code": "DerbySoft",
+        "name": "Official Site",
+        "rate": 341,
+        "tax": null
+      },
+      {
+        "code": "Vio",
+        "name": "Vio.com",
+        "rate": 318,
+        "tax": null
+      }
+    ]
+  },
+  "timestamp": 1792028230628
+}

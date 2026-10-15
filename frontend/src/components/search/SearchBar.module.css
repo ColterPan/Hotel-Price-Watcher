@@ -1,0 +1,259 @@
+.wrap {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  max-width: 860px;
+}
+
+.bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 10px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+  min-width: 0;
+}
+
+.field:focus-within {
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.locationField {
+  flex: 1.4;
+}
+
+.fieldIcon {
+  flex: none;
+  color: var(--text-faint);
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  outline: none;
+}
+
+.input::placeholder,
+.placeholder {
+  color: var(--text-faint);
+}
+
+.fieldButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 100%;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.fieldButton:focus-visible {
+  outline: none;
+}
+
+.guests {
+  flex: none;
+  gap: 6px;
+}
+
+.stepper {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: transparent;
+  color: var(--text-muted);
+}
+
+.stepper:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.submit {
+  flex: none;
+  height: 40px;
+  padding: 0 18px;
+}
+
+.problem {
+  position: absolute;
+  left: 8px;
+  top: calc(100% + 8px);
+  margin: 0;
+  padding: 6px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--drop-soft);
+  color: var(--drop);
+  font-size: 13px;
+}
+
+/* Location suggestions */
+.suggestions {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 8px);
+  left: 0;
+  width: max(100%, 320px);
+  margin: 0;
+  padding: 6px;
+  list-style: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-float);
+  max-height: 320px;
+  overflow-y: auto;
+}
+
+.suggestion,
+.suggestionActive {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 8px 10px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.suggestionActive {
+  background: var(--surface-3);
+}
+
+.suggestionMeta {
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+.suggestionEmpty {
+  padding: 10px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Date picker popover */
+.popover {
+  position: absolute;
+  z-index: 30;
+  top: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  /* Absolutely positioned boxes shrink to their anchor's width, which would
+     stack the two months. Size to the calendar instead. */
+  width: max-content;
+  max-width: calc(100vw - 24px);
+  padding: 12px 14px 10px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-float);
+}
+
+.popoverHint {
+  margin: 4px 0 0;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.dayPicker {
+  --rdp-accent-color: var(--accent);
+  --rdp-accent-background-color: var(--accent-soft);
+  --rdp-range_middle-background-color: var(--accent-soft);
+  --rdp-range_middle-color: var(--text);
+  --rdp-range_start-color: var(--accent-ink);
+  --rdp-range_end-color: var(--accent-ink);
+  --rdp-range_start-date-background-color: var(--accent);
+  --rdp-range_end-date-background-color: var(--accent);
+  --rdp-today-color: var(--accent);
+  --rdp-day-height: 38px;
+  --rdp-day-width: 38px;
+  --rdp-day_button-height: 36px;
+  --rdp-day_button-width: 36px;
+  --rdp-months-gap: 24px;
+  font-size: 13px;
+}
+
+/* Collapsed one-line summary for phones */
+.summary {
+  display: none;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  height: 44px;
+  padding: 0 14px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-float);
+  text-align: left;
+}
+
+.summary span:nth-child(2) {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+}
+
+.summaryGuests {
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+@media (max-width: 759px) {
+  .summary {
+    display: flex;
+  }
+
+  .summaryHidden {
+    display: none;
+  }
+
+  .bar {
+    display: none;
+  }
+
+  .barOpen {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px;
+  }
+
+  .barOpen .locationField {
+    grid-column: 1 / -1;
+  }
+
+  .barOpen .submit {
+    grid-column: 1 / -1;
+  }
+
+  .popover {
+    left: 0;
+    transform: none;
+  }
+}

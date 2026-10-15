@@ -1,0 +1,324 @@
+.detail {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.topRow {
+  flex: none;
+  padding: 10px 10px 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding-bottom: 24px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.hero {
+  height: 180px;
+  background: var(--surface-3);
+}
+
+.hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.head {
+  padding: 14px 16px 4px;
+}
+
+.titleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.name {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.25;
+}
+
+.meta {
+  margin: 4px 0 0;
+  color: var(--text-faint);
+  font-size: 13px;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.headPrice {
+  margin: 12px 0 0;
+}
+
+.bigPrice {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.section {
+  margin: 0 16px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+}
+
+.head + .section {
+  margin-top: 10px;
+}
+
+.sectionTitle {
+  margin: 0 0 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.muted {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.footnote {
+  margin: 10px 0 0;
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+.error {
+  margin: 0;
+  color: var(--drop);
+  font-size: 13px;
+}
+
+/* Price table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.table th {
+  padding: 0 0 6px;
+  color: var(--text-faint);
+  font-weight: 500;
+  font-size: 12px;
+  text-align: left;
+}
+
+.table td {
+  padding: 8px 0;
+  border-top: 1px solid var(--line);
+}
+
+.right {
+  text-align: right !important;
+}
+
+.mutedCell {
+  color: var(--text-muted);
+}
+
+.cheapestRow td:first-child {
+  font-weight: 600;
+}
+
+.cheapestTag,
+.freeCancel {
+  margin-left: 8px;
+  padding: 1px 6px;
+  border-radius: var(--radius-pill);
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.cheapestTag {
+  background: var(--good-soft);
+  color: var(--good);
+}
+
+.freeCancel {
+  background: var(--surface-3);
+  color: var(--text-muted);
+}
+
+.tableSkeleton {
+  display: grid;
+  gap: 6px;
+}
+
+/* Score breakdown */
+.scoreBlock {
+  display: grid;
+  gap: 12px;
+}
+
+.sources {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.source {
+  display: grid;
+  gap: 4px;
+}
+
+.sourceHead {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.sourceMeta {
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+.bar {
+  height: 6px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.barFill {
+  height: 100%;
+  border-radius: inherit;
+  background: var(--good);
+}
+
+/* Cheap dates */
+.heatmap {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(14px, 1fr));
+  gap: 3px;
+}
+
+.heatDay {
+  aspect-ratio: 1;
+  border-radius: 3px;
+  background: var(--surface-3);
+}
+
+.heatDay[data-level="cheap"] {
+  background: var(--good);
+}
+
+.heatDay[data-level="average"] {
+  background: var(--line-strong);
+}
+
+.heatDay[data-level="high"] {
+  background: var(--drop);
+  opacity: 0.75;
+}
+
+.heatDay[data-current] {
+  outline: 2px solid var(--text);
+  outline-offset: 1px;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+.legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.legend span::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: var(--line-strong);
+}
+
+.legend span[data-level="cheap"]::before {
+  background: var(--good);
+}
+
+.legend span[data-level="high"]::before {
+  background: var(--drop);
+}
+
+.legendCurrent::before {
+  background: transparent !important;
+  outline: 2px solid var(--text);
+}
+
+/* Watch */
+.watchForm {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 8px;
+}
+
+.watchForm .footnote,
+.watchForm .error {
+  grid-column: 1 / -1;
+}
+
+.watchLabel {
+  display: grid;
+  gap: 4px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.watchLabel :global(.field) {
+  width: 100%;
+}
+
+.watching {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--accent-soft);
+  color: var(--accent);
+}
+
+.watching > div {
+  flex: 1;
+  color: var(--text);
+}
+
+.watching p {
+  font-size: 12px;
+}
+
+.sourcesLine {
+  margin: 8px 16px 0;
+  color: var(--text-faint);
+  font-size: 12px;
+}

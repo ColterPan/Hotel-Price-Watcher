@@ -1,0 +1,47 @@
+/* Night map palette. Every colour in the app comes from here. */
+:root {
+  color-scheme: dark;
+
+  --bg: #0e1116;
+  --surface: #151a21;
+  --surface-2: #1b212a;
+  --surface-3: #232a35;
+  --line: #2a313c;
+  --line-strong: #3a4250;
+
+  --text: #e6e8eb;
+  --text-muted: #9aa3ae;
+  --text-faint: #6b7480;
+
+  --accent: #f2b544;
+  --accent-strong: #ffc85c;
+  --accent-soft: rgba(242, 181, 68, 0.14);
+  --accent-ink: #1a1408;
+
+  --good: #4cc38a;
+  --good-soft: rgba(76, 195, 138, 0.14);
+  --drop: #f2555a;
+  --drop-soft: rgba(242, 85, 90, 0.14);
+  --info: #7fb2ff;
+
+  --grade-a: #4cc38a;
+  --grade-b: #9ad06a;
+  --grade-c: #f2b544;
+  --grade-d: #f08a4b;
+  --grade-e: #f2555a;
+
+  --font-sans: "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --radius-sm: 6px;
+  --radius: 10px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --shadow-float: 0 10px 30px rgba(0, 0, 0, 0.45), 0 2px 6px rgba(0, 0, 0, 0.35);
+  --shadow-pin: 0 2px 8px rgba(0, 0, 0, 0.55);
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --drawer-width: 420px;
+  --topbar-height: 64px;
+}

@@ -1,0 +1,380 @@
+[
+  {
+    "name": "Singapore",
+    "country": "Singapore",
+    "location_key": "g294265",
+    "latitude": 1.2912,
+    "longitude": 103.8476
+  },
+  {
+    "name": "Sentosa",
+    "country": "Singapore",
+    "location_key": "g294264",
+    "latitude": 1.2527,
+    "longitude": 103.82
+  },
+  {
+    "name": "Kuala Lumpur",
+    "country": "Malaysia",
+    "location_key": "g298570",
+    "latitude": 3.1484,
+    "longitude": 101.7086
+  },
+  {
+    "name": "George Town, Penang",
+    "country": "Malaysia",
+    "location_key": "g298303",
+    "latitude": 5.4195,
+    "longitude": 100.334
+  },
+  {
+    "name": "Johor Bahru",
+    "country": "Malaysia",
+    "location_key": "g298278",
+    "latitude": 1.4816,
+    "longitude": 103.7618
+  },
+  {
+    "name": "Malacca",
+    "country": "Malaysia",
+    "location_key": "g306997",
+    "latitude": 2.1965,
+    "longitude": 102.249
+  },
+  {
+    "name": "Langkawi",
+    "country": "Malaysia",
+    "location_key": "g298283",
+    "latitude": 6.2997,
+    "longitude": 99.7319
+  },
+  {
+    "name": "Bangkok",
+    "country": "Thailand",
+    "location_key": "g293916",
+    "latitude": 13.733,
+    "longitude": 100.5595
+  },
+  {
+    "name": "Phuket",
+    "country": "Thailand",
+    "location_key": "g293920",
+    "latitude": 7.8836,
+    "longitude": 98.2962
+  },
+  {
+    "name": "Chiang Mai",
+    "country": "Thailand",
+    "location_key": "g293917",
+    "latitude": 18.7867,
+    "longitude": 98.9892
+  },
+  {
+    "name": "Pattaya",
+    "country": "Thailand",
+    "location_key": "g293919",
+    "latitude": 12.9337,
+    "longitude": 100.8873
+  },
+  {
+    "name": "Bali",
+    "country": "Indonesia",
+    "location_key": "g294226",
+    "latitude": -8.518,
+    "longitude": 115.248
+  },
+  {
+    "name": "Jakarta",
+    "country": "Indonesia",
+    "location_key": "g294229",
+    "latitude": -6.1884,
+    "longitude": 106.8231
+  },
+  {
+    "name": "Yogyakarta",
+    "country": "Indonesia",
+    "location_key": "g294230",
+    "latitude": -7.7837,
+    "longitude": 110.3723
+  },
+  {
+    "name": "Ho Chi Minh City",
+    "country": "Vietnam",
+    "location_key": "g293925",
+    "latitude": 10.7784,
+    "longitude": 106.7037
+  },
+  {
+    "name": "Hanoi",
+    "country": "Vietnam",
+    "location_key": "g293924",
+    "latitude": 21.0312,
+    "longitude": 105.8503
+  },
+  {
+    "name": "Da Nang",
+    "country": "Vietnam",
+    "location_key": "g298085",
+    "latitude": 16.0629,
+    "longitude": 108.2452
+  },
+  {
+    "name": "Manila",
+    "country": "Philippines",
+    "location_key": "g298573",
+    "latitude": 14.5776,
+    "longitude": 120.9833
+  },
+  {
+    "name": "Cebu City",
+    "country": "Philippines",
+    "location_key": "g298460",
+    "latitude": 10.3172,
+    "longitude": 123.9015
+  },
+  {
+    "name": "Hong Kong",
+    "country": "China",
+    "location_key": "g294217",
+    "latitude": 22.2877,
+    "longitude": 114.1731
+  },
+  {
+    "name": "Macau",
+    "country": "China",
+    "location_key": "g664891",
+    "latitude": 22.1473,
+    "longitude": 113.56
+  },
+  {
+    "name": "Taipei",
+    "country": "Taiwan",
+    "location_key": "g293913",
+    "latitude": 25.0465,
+    "longitude": 121.5258
+  },
+  {
+    "name": "Tokyo",
+    "country": "Japan",
+    "location_key": "g298184",
+    "latitude": 35.683,
+    "longitude": 139.7772
+  },
+  {
+    "name": "Osaka",
+    "country": "Japan",
+    "location_key": "g298566",
+    "latitude": 34.6761,
+    "longitude": 135.4994
+  },
+  {
+    "name": "Kyoto",
+    "country": "Japan",
+    "location_key": "g298564",
+    "latitude": 34.9996,
+    "longitude": 135.7604
+  },
+  {
+    "name": "Sapporo",
+    "country": "Japan",
+    "location_key": "g298560",
+    "latitude": 43.0572,
+    "longitude": 141.3514
+  },
+  {
+    "name": "Fukuoka",
+    "country": "Japan",
+    "location_key": "g298207",
+    "latitude": 33.5903,
+    "longitude": 130.4126
+  },
+  {
+    "name": "Seoul",
+    "country": "South Korea",
+    "location_key": "g294197",
+    "latitude": 37.5453,
+    "longitude": 126.9805
+  },
+  {
+    "name": "Busan",
+    "country": "South Korea",
+    "location_key": "g297884",
+    "latitude": 35.1564,
+    "longitude": 129.0646
+  },
+  {
+    "name": "Shanghai",
+    "country": "China",
+    "location_key": "g308272",
+    "latitude": 31.2223,
+    "longitude": 121.4575
+  },
+  {
+    "name": "Beijing",
+    "country": "China",
+    "location_key": "g294212",
+    "latitude": 39.9284,
+    "longitude": 116.4503
+  },
+  {
+    "name": "Sydney",
+    "country": "Australia",
+    "location_key": "g255060",
+    "latitude": -33.8713,
+    "longitude": 151.2067
+  },
+  {
+    "name": "Melbourne",
+    "country": "Australia",
+    "location_key": "g255100",
+    "latitude": -37.8159,
+    "longitude": 144.9664
+  },
+  {
+    "name": "Brisbane",
+    "country": "Australia",
+    "location_key": "g255068",
+    "latitude": -27.4645,
+    "longitude": 153.0302
+  },
+  {
+    "name": "Perth",
+    "country": "Australia",
+    "location_key": "g255103",
+    "latitude": -31.9534,
+    "longitude": 115.8554
+  },
+  {
+    "name": "Auckland",
+    "country": "New Zealand",
+    "location_key": "g255106",
+    "latitude": -36.8466,
+    "longitude": 174.7643
+  },
+  {
+    "name": "Dubai",
+    "country": "United Arab Emirates",
+    "location_key": "g295424",
+    "latitude": 25.1167,
+    "longitude": 55.2018
+  },
+  {
+    "name": "Istanbul",
+    "country": "Turkey",
+    "location_key": "g293974",
+    "latitude": 41.0126,
+    "longitude": 28.9756
+  },
+  {
+    "name": "London",
+    "country": "United Kingdom",
+    "location_key": "g186338",
+    "latitude": 51.5101,
+    "longitude": -0.1353
+  },
+  {
+    "name": "Paris",
+    "country": "France",
+    "location_key": "g187147",
+    "latitude": 48.8687,
+    "longitude": 2.3325
+  },
+  {
+    "name": "Rome",
+    "country": "Italy",
+    "location_key": "g187791",
+    "latitude": 41.9005,
+    "longitude": 12.4809
+  },
+  {
+    "name": "Barcelona",
+    "country": "Spain",
+    "location_key": "g187497",
+    "latitude": 41.3884,
+    "longitude": 2.1723
+  },
+  {
+    "name": "Amsterdam",
+    "country": "Netherlands",
+    "location_key": "g188590",
+    "latitude": 52.3679,
+    "longitude": 4.8925
+  },
+  {
+    "name": "Berlin",
+    "country": "Germany",
+    "location_key": "g187323",
+    "latitude": 52.5087,
+    "longitude": 13.3746
+  },
+  {
+    "name": "New York City",
+    "country": "United States",
+    "location_key": "g60763",
+    "latitude": 40.7517,
+    "longitude": -73.9864
+  },
+  {
+    "name": "Los Angeles",
+    "country": "United States",
+    "location_key": "g32655",
+    "latitude": 34.0806,
+    "longitude": -118.3646
+  },
+  {
+    "name": "San Francisco",
+    "country": "United States",
+    "location_key": "g60713",
+    "latitude": 37.7894,
+    "longitude": -122.4084
+  },
+  {
+    "name": "Las Vegas",
+    "country": "United States",
+    "location_key": "g45963",
+    "latitude": 36.1033,
+    "longitude": -115.1735
+  },
+  {
+    "name": "New Delhi",
+    "country": "India",
+    "location_key": "g304551",
+    "latitude": 28.5681,
+    "longitude": 77.2135
+  },
+  {
+    "name": "Mumbai",
+    "country": "India",
+    "location_key": "g304554",
+    "latitude": 19.1009,
+    "longitude": 72.8586
+  },
+  {
+    "name": "Colombo",
+    "country": "Sri Lanka",
+    "location_key": "g293962",
+    "latitude": 6.9122,
+    "longitude": 79.8509
+  },
+  {
+    "name": "Kathmandu",
+    "country": "Nepal",
+    "location_key": "g293890",
+    "latitude": 27.714,
+    "longitude": 85.3134
+  },
+  {
+    "name": "Phnom Penh",
+    "country": "Cambodia",
+    "location_key": "g293940",
+    "latitude": 11.5584,
+    "longitude": 104.9262
+  },
+  {
+    "name": "Siem Reap",
+    "country": "Cambodia",
+    "location_key": "g297390",
+    "latitude": 13.3586,
+    "longitude": 103.8566
+  }
+]

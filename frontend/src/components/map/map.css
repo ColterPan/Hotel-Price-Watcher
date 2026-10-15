@@ -1,0 +1,107 @@
+/* Global (not a CSS module): Leaflet renders pins from HTML strings. */
+
+.map {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Turns light OpenStreetMap tiles into a dark night map. */
+.map--darken .leaflet-tile-pane {
+  filter: invert(1) hue-rotate(180deg) brightness(0.92) contrast(0.88) saturate(0.35);
+}
+
+.pin-anchor {
+  background: none;
+  border: 0;
+}
+
+.pin {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  align-items: center;
+  height: 26px;
+  padding: 0 9px;
+  border-radius: var(--radius-pill);
+  background: var(--accent);
+  color: var(--accent-ink);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: var(--shadow-pin);
+  border: 1.5px solid rgba(0, 0, 0, 0.35);
+  transition: transform 120ms var(--ease), background 120ms var(--ease);
+  cursor: pointer;
+}
+
+.pin--typical {
+  background: var(--surface-2);
+  color: var(--accent);
+  border-color: var(--accent);
+  border-style: dashed;
+}
+
+.pin--none {
+  background: var(--surface-2);
+  color: var(--text-faint);
+  border-color: var(--line-strong);
+}
+
+.pin--budget {
+  background: var(--good);
+  border-color: rgba(0, 0, 0, 0.35);
+  color: #07150e;
+}
+
+.pin--loading::after {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin-left: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.6;
+  animation: pin-pulse 900ms ease-in-out infinite alternate;
+}
+
+/* A pin that would overlap a more important one shrinks to a dot. */
+.pin--dot {
+  width: 12px;
+  height: 12px;
+  padding: 0;
+  border-width: 2px;
+  border-style: solid;
+  border-color: var(--bg);
+}
+
+.pin--dot.pin--typical {
+  background: var(--accent);
+  opacity: 0.6;
+}
+
+.pin--dot.pin--none {
+  background: var(--text-faint);
+}
+
+.pin--hovered,
+.pin--selected {
+  transform: translate(-50%, -50%) scale(1.12);
+}
+
+.pin--selected {
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  border-style: solid;
+}
+
+@keyframes pin-pulse {
+  from {
+    opacity: 0.2;
+  }
+  to {
+    opacity: 0.8;
+  }
+}

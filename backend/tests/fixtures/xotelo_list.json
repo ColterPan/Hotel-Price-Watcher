@@ -1,0 +1,122 @@
+{
+  "error": null,
+  "result": {
+    "total_count": 1007,
+    "limit": 5,
+    "offset": 0,
+    "list": [
+      {
+        "name": "Crowne Plaza Changi Airport By IHG",
+        "key": "g294265-d1086295",
+        "accommodation_type": "Hotel",
+        "url": "https://www.tripadvisor.com/Hotel_Review-g294265-d1086295-Reviews-Crowne_Plaza_Changi_Airport_By_IHG-Singapore.html",
+        "review_summary": {
+          "rating": 4.4,
+          "count": 7529
+        },
+        "price_ranges": {
+          "maximum": 509,
+          "minimum": 265
+        },
+        "geo": {
+          "latitude": 1.358561,
+          "longitude": 103.98797
+        },
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0b/c9/2e/d3/landscaped-outdoor-pool.jpg",
+        "mentions": [],
+        "merchandising_labels": [
+          "All inclusive"
+        ]
+      },
+      {
+        "name": "Pan Pacific Singapore",
+        "key": "g294265-d302294",
+        "accommodation_type": "Hotel",
+        "url": "https://www.tripadvisor.com/Hotel_Review-g294265-d302294-Reviews-Pan_Pacific_Singapore-Singapore.html",
+        "review_summary": {
+          "rating": 4.6,
+          "count": 17055
+        },
+        "price_ranges": {
+          "maximum": 2502,
+          "minimum": 341
+        },
+        "geo": {
+          "latitude": 1.292475,
+          "longitude": 103.858734
+        },
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/30/1c/13/a0/pan-pacific-singapore.jpg",
+        "mentions": [],
+        "merchandising_labels": []
+      },
+      {
+        "name": "Hotel Mi Rochor",
+        "key": "g294265-d26966997",
+        "accommodation_type": "Hotel",
+        "url": "https://www.tripadvisor.com/Hotel_Review-g294265-d26966997-Reviews-Hotel_Mi_Rochor-Singapore.html",
+        "review_summary": {
+          "rating": 4.8,
+          "count": 1090
+        },
+        "price_ranges": {
+          "maximum": 367,
+          "minimum": 113
+        },
+        "geo": {
+          "latitude": 1.303974,
+          "longitude": 103.85155
+        },
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2f/91/20/44/facade.jpg",
+        "mentions": [],
+        "merchandising_labels": [
+          "Breakfast included"
+        ]
+      },
+      {
+        "name": "Village Hotel Sentosa by Far East Hospitality",
+        "key": "g294265-d15294579",
+        "accommodation_type": "Hotel",
+        "url": "https://www.tripadvisor.com/Hotel_Review-g294264-d15294579-Reviews-Village_Hotel_Sentosa_by_Far_East_Hospitality-Sentosa_Island_Singapore.html",
+        "review_summary": {
+          "rating": 4.6,
+          "count": 1646
+        },
+        "price_ranges": {
+          "maximum": 512,
+          "minimum": 179
+        },
+        "geo": {
+          "latitude": 1.252239,
+          "longitude": 103.82026
+        },
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/16/8e/55/82/village-hotel-at-sentosa.jpg",
+        "mentions": [],
+        "merchandising_labels": [
+          "Breakfast included"
+        ]
+      },
+      {
+        "name": "The Fullerton Hotel Singapore",
+        "key": "g294265-d306173",
+        "accommodation_type": "Hotel",
+        "url": "https://www.tripadvisor.com/Hotel_Review-g294265-d306173-Reviews-The_Fullerton_Hotel_Singapore-Singapore.html",
+        "review_summary": {
+          "rating": 4.7,
+          "count": 11437
+        },
+        "price_ranges": {
+          "maximum": 983,
+          "minimum": 309
+        },
+        "geo": {
+          "latitude": 1.286357,
+          "longitude": 103.853065
+        },
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0e/1f/14/45/the-fullerton-hotel-singapore.jpg",
+        "mentions": [],
+        "merchandising_labels": []
+      }
+    ]
+  },
+  "timestamp": 1792028215775
+}

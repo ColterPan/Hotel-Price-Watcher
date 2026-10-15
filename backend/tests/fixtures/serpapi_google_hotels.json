@@ -1,0 +1,63 @@
+{
+  "_note": "Hand-written from https://serpapi.com/google-hotels-api field documentation, not a live capture. Replace with scripts/capture_fixtures.py once you have a SERPAPI_KEY.",
+  "search_metadata": {"status": "Success"},
+  "search_parameters": {"engine": "google_hotels", "q": "hotels in Singapore", "currency": "USD"},
+  "ads": [
+    {"name": "Sponsored Place", "source": "Some OTA", "extracted_price": 99, "gps_coordinates": {"latitude": 1.3, "longitude": 103.8}}
+  ],
+  "properties": [
+    {
+      "type": "hotel",
+      "name": "Pan Pacific Singapore",
+      "link": "https://www.panpacific.com/en/hotels-and-resorts/pp-marina.html",
+      "property_token": "ChcIvbqT1Ji9ma3eARoKL20vMDdyeHo4EAE",
+      "gps_coordinates": {"latitude": 1.29262, "longitude": 103.85881},
+      "rate_per_night": {"lowest": "$301", "extracted_lowest": 301, "before_taxes_fees": "$255", "extracted_before_taxes_fees": 255},
+      "total_rate": {"lowest": "$602", "extracted_lowest": 602},
+      "prices": [
+        {"source": "Agoda", "logo": "https://example.invalid/agoda.png", "num_guests": 2, "rate_per_night": {"lowest": "$310", "extracted_lowest": 310}},
+        {"source": "Pan Pacific", "logo": "https://example.invalid/pp.png", "num_guests": 2, "rate_per_night": {"lowest": "$301", "extracted_lowest": 301}, "free_cancellation": true}
+      ],
+      "images": [{"thumbnail": "https://example.invalid/pp-thumb.jpg", "original_image": "https://example.invalid/pp.jpg"}],
+      "overall_rating": 4.6,
+      "reviews": 9822,
+      "location_rating": 4.7,
+      "hotel_class": "5-star hotel",
+      "extracted_hotel_class": 5,
+      "amenities": ["Free Wi-Fi", "Pool", "Spa", "Fitness centre"]
+    },
+    {
+      "type": "hotel",
+      "name": "Hotel Mi Rochor",
+      "property_token": "ChkIq5bc2vX0lLKFARoML2cvMTFqMHBzZGcQAQ",
+      "gps_coordinates": {"latitude": 1.30401, "longitude": 103.85159},
+      "rate_per_night": {"lowest": "$112", "extracted_lowest": 112},
+      "total_rate": {"lowest": "$224", "extracted_lowest": 224},
+      "prices": [
+        {"source": "Booking.com", "rate_per_night": {"lowest": "$112", "extracted_lowest": 112}}
+      ],
+      "images": [{"thumbnail": "https://example.invalid/mi.jpg"}],
+      "overall_rating": 4.3,
+      "reviews": 1204,
+      "hotel_class": "3-star hotel",
+      "amenities": ["Free Wi-Fi", "Air conditioning"]
+    },
+    {
+      "type": "hotel",
+      "name": "Example Bay Hotel",
+      "property_token": "ChoQ5YiTp-rKmO60ARoNL2cvMTFzc2djMTNqcRAC",
+      "gps_coordinates": {"latitude": 1.2801, "longitude": 103.8502},
+      "rate_per_night": {"lowest": "$140", "extracted_lowest": 140},
+      "overall_rating": 3.9,
+      "reviews": 88,
+      "amenities": []
+    },
+    {
+      "type": "vacation rental",
+      "name": "Listing Without Coordinates",
+      "property_token": "ChoQ0000000000000000000000000000000000",
+      "rate_per_night": {"lowest": "$90", "extracted_lowest": 90}
+    }
+  ],
+  "serpapi_pagination": {"current_from": 1, "current_to": 20, "next_page_token": "CBI=", "next": "https://serpapi.com/search.json?engine=google_hotels&next_page_token=CBI%3D"}
+}

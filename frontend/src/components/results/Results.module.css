@@ -1,0 +1,416 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+  height: 100%;
+}
+
+.header {
+  flex: none;
+  padding: 16px 16px 10px;
+  border-bottom: 1px solid var(--line);
+}
+
+.headerTop {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.subtitle {
+  margin: 2px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Provider status */
+.providers {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.provider {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.providerDot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--text-faint);
+}
+
+.provider[data-status="ok"] .providerDot {
+  background: var(--good);
+}
+
+.provider[data-status="error"] .providerDot,
+.provider[data-status="quota_exhausted"] .providerDot {
+  background: var(--drop);
+}
+
+.provider[data-status="not_configured"] .providerDot,
+.provider[data-status="no_results"] .providerDot {
+  background: var(--accent);
+}
+
+/* Rates progress */
+.progress {
+  position: relative;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border-radius: var(--radius-sm);
+  background: var(--surface-2);
+  color: var(--text-muted);
+  font-size: 12px;
+  overflow: hidden;
+}
+
+.progress span {
+  position: relative;
+}
+
+.progressBar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--accent-soft);
+  transition: width 300ms var(--ease);
+}
+
+/* Sort + filters */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.segmented {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.segment,
+.segmentActive {
+  height: 28px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 13px;
+  white-space: nowrap;
+}
+
+.segmentActive {
+  background: var(--surface-3);
+  color: var(--text);
+  font-weight: 500;
+}
+
+.filtersOn {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.filters {
+  display: grid;
+  gap: 12px;
+  margin-top: 12px;
+  padding: 12px;
+  border-radius: var(--radius);
+  background: var(--surface-2);
+}
+
+.filterRow {
+  display: grid;
+  gap: 6px;
+}
+
+.filterGrid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 8px;
+}
+
+.filterField {
+  display: grid;
+  gap: 4px;
+  min-width: 0;
+}
+
+.filterField :global(.field) {
+  width: 100%;
+  background: var(--surface);
+}
+
+.filterLabel {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.slider input {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+.toggle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.toggle input {
+  accent-color: var(--accent);
+}
+
+/* List */
+.list {
+  flex: 1;
+  min-height: 0;
+  margin: 0;
+  padding: 8px;
+  list-style: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line-strong) transparent;
+}
+
+.card {
+  display: flex;
+  gap: 12px;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: transparent;
+  text-align: left;
+  transition: background 120ms var(--ease), border-color 120ms var(--ease);
+}
+
+.card:hover,
+.cardHighlighted {
+  background: var(--surface-2);
+  border-color: var(--line);
+}
+
+.thumb {
+  flex: none;
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface-3);
+}
+
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbEmpty {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: var(--text-faint);
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.cardBody {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardTitleRow {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.cardTitle {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cardMeta {
+  margin: 0;
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+.cardScoreRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.reviews {
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+.cardPriceRow {
+  display: flex;
+  flex-direction: column;
+  margin-top: auto;
+}
+
+.priceBlock {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.priceFrom {
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+.price {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.perNight {
+  color: var(--text-faint);
+  font-size: 12px;
+}
+
+.priceTotal {
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+/* Score + grade badges */
+.score {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.scoreValue {
+  display: inline-grid;
+  place-items: center;
+  min-width: 32px;
+  height: 22px;
+  padding: 0 5px;
+  border-radius: 6px;
+  background: var(--good-soft);
+  color: var(--good);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.scoreLg .scoreValue {
+  min-width: 44px;
+  height: 30px;
+  font-size: 16px;
+}
+
+.scoreLg {
+  font-size: 14px;
+  color: var(--text);
+}
+
+.scoreNone {
+  color: var(--text-faint);
+}
+
+.scoreWarn {
+  color: var(--accent);
+}
+
+.grade {
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--bg);
+}
+
+.grade[data-grade="A"] {
+  background: var(--grade-a);
+}
+.grade[data-grade="B"] {
+  background: var(--grade-b);
+}
+.grade[data-grade="C"] {
+  background: var(--grade-c);
+}
+.grade[data-grade="D"] {
+  background: var(--grade-d);
+}
+.grade[data-grade="E"] {
+  background: var(--grade-e);
+}
+
+/* Empty + skeleton */
+.empty {
+  display: grid;
+  justify-items: start;
+  gap: 10px;
+  padding: 24px 16px;
+  color: var(--text-muted);
+}
+
+.empty p {
+  margin: 0;
+}
+
+.skeletonCard {
+  display: flex;
+  gap: 12px;
+  padding: 10px;
+}

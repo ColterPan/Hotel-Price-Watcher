@@ -1,0 +1,30 @@
+services:
+  backend:
+    build: ./backend
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      DATABASE_PATH: /data/hotels.db
+    volumes:
+      - hotel-data:/data
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_TILE_URL: ${VITE_TILE_URL:-}
+        VITE_TILE_ATTRIBUTION: ${VITE_TILE_ATTRIBUTION:-}
+        VITE_TILE_DARKEN: ${VITE_TILE_DARKEN:-true}
+    # Published on localhost only: the app has no login, so keep it off your LAN
+    # unless you put it behind something that has one.
+    ports:
+      - "127.0.0.1:8080:80"
+    depends_on:
+      backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  hotel-data:
