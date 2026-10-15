@@ -7,7 +7,14 @@ export interface EffectivePrice {
   site: string | null;
 }
 
+/** The live check finished and no booking site lists the hotel for these dates. */
+export function isUnavailable(rates: RatesResponse | undefined): boolean {
+  return rates?.status === "no_results";
+}
+
 export function effectivePrice(hotel: Hotel, rates: RatesResponse | undefined): EffectivePrice | null {
+  // Its usual starting price would be misleading here: it can't be booked.
+  if (isUnavailable(rates)) return null;
   if (rates?.cheapest) {
     return { nightlyUsd: Number(rates.cheapest.nightly), kind: "live", site: rates.cheapest.site };
   }

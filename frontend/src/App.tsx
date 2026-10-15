@@ -12,7 +12,7 @@ import styles from "./components/Shell.module.css";
 import { WatchesPanel } from "./components/watches/WatchesPanel";
 import { useHealth, useLiveRates, useSearch, useWatches } from "./hooks/queries";
 import { nightsBetween } from "./lib/format";
-import { effectivePrice, needsLiveRates } from "./lib/hotels";
+import { effectivePrice, isUnavailable, needsLiveRates } from "./lib/hotels";
 import { computeValues, DEFAULT_WEIGHT } from "./lib/value";
 import { applyFilters, DEFAULT_FILTERS, sortViews, type Filters, type HotelView, type MapBounds, type SortKey } from "./lib/view";
 import { CurrencyProvider, useMoney } from "./state/currency";
@@ -53,6 +53,7 @@ function Shell({ checkIntervalHours }: { checkIntervalHours: number | null }) {
       hotel,
       price: effectivePrice(hotel, live.ratesById.get(hotel.id)),
       loadingPrice: needsLiveRates(hotel) && live.pendingIds.has(hotel.id),
+      unavailable: isUnavailable(live.ratesById.get(hotel.id)),
     }));
     const values = computeValues(
       base.map((v) => ({ id: v.hotel.id, price: v.price?.nightlyUsd ?? null, quality: v.hotel.quality?.score ?? null })),

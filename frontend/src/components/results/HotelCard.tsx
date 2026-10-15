@@ -75,7 +75,13 @@ function HotelCardImpl({ view, nights, highlighted, formatPrice, onSelect, onHov
                 )}
               </>
             ) : (
-              <span className={styles.priceTotal}>{loadingPrice ? "checking your dates" : "No price found"}</span>
+              <span className={styles.priceTotal}>
+                {loadingPrice
+                  ? "checking your dates"
+                  : view.unavailable
+                    ? "No rooms listed for these dates"
+                    : "No price found"}
+              </span>
             )}
           </div>
         </div>

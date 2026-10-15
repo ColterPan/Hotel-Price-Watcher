@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import type { Hotel, RatesResponse } from "../types";
-import { effectivePrice, needsLiveRates } from "./hotels";
+import { effectivePrice, isUnavailable, needsLiveRates } from "./hotels";
 
 function hotel(overrides: Partial<Hotel> = {}): Hotel {
   return {
@@ -39,6 +39,18 @@ describe("effectivePrice", () => {
 
   it("falls back to the typical minimum", () => {
     expect(effectivePrice(hotel(), undefined)).toEqual({ nightlyUsd: 72, kind: "typical", site: null });
+  });
+
+  it("drops the typical price once the live check finds no rooms", () => {
+    const soldOut = { status: "no_results", cheapest: null } as RatesResponse;
+    expect(isUnavailable(soldOut)).toBe(true);
+    expect(effectivePrice(hotel(), soldOut)).toBeNull();
+  });
+
+  it("keeps the typical price when the live check failed, since availability is unknown", () => {
+    const failed = { status: "error", cheapest: null } as RatesResponse;
+    expect(isUnavailable(failed)).toBe(false);
+    expect(effectivePrice(hotel(), failed)?.kind).toBe("typical");
   });
 
   it("is null when nothing is known", () => {

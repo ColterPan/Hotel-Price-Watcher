@@ -9,6 +9,8 @@ export interface HotelView {
   value: ValueResult | null;
   /** Live rates for this hotel are still loading. */
   loadingPrice: boolean;
+  /** No booking site has rooms for the searched dates. */
+  unavailable?: boolean;
 }
 
 export interface MapBounds {

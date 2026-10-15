@@ -61,24 +61,24 @@ The backend reads `.env` from the directory you start it in. For the map tile se
 
 All settings are environment variables. `.env.example` lists every one with an explanation. The ones you are most likely to change:
 
-| Variable | Default | What it does |
-|---|---|---|
-| `ENABLED_PROVIDERS` | `xotelo` | Comma-separated: `xotelo`, `serpapi`, `demo` |
-| `SERPAPI_KEY` | empty | Turns on Google Hotels results through SerpApi |
-| `SERPAPI_MONTHLY_BUDGET` | `200` | Hard cap on SerpApi calls per month |
-| `DEFAULT_DISPLAY_CURRENCY` | `SGD` | First currency the UI shows. Users can switch. |
-| `CHECK_INTERVAL_HOURS` | `6` | How often watched hotels are re-checked |
-| `XOTELO_MAX_CONCURRENCY` | `4` | Parallel rate lookups. Keep it low, the API is shared. |
-| `VITE_TILE_URL` | OpenStreetMap | Map tiles. See [docs/data-sources.md](docs/data-sources.md). |
+| Variable                     | Default       | What it does                                               |
+| ---------------------------- | ------------- | ---------------------------------------------------------- |
+| `ENABLED_PROVIDERS`        | `xotelo`    | Comma-separated:`xotelo`, `serpapi`, `demo`          |
+| `SERPAPI_KEY`              | empty         | Turns on Google Hotels results through SerpApi             |
+| `SERPAPI_MONTHLY_BUDGET`   | `200`       | Hard cap on SerpApi calls per month                        |
+| `DEFAULT_DISPLAY_CURRENCY` | `SGD`       | First currency the UI shows. Users can switch.             |
+| `CHECK_INTERVAL_HOURS`     | `6`         | How often watched hotels are re-checked                    |
+| `XOTELO_MAX_CONCURRENCY`   | `4`         | Parallel rate lookups. Keep it low, the API is shared.     |
+| `VITE_TILE_URL`            | OpenStreetMap | Map tiles. See[docs/data-sources.md](docs/data-sources.md). |
 
 ## Where the data comes from
 
-| Source | Cost | Used for |
-|---|---|---|
-| [Xotelo](https://xotelo.com) | Free, no key | Hotel list per city, TripAdvisor rating and review count, live nightly rates from several booking sites, cheap-day calendar |
-| [SerpApi Google Hotels](https://serpapi.com/google-hotels-api) | Optional key, small free plan | Google rating and review count, per-site prices, amenities, star class |
-| [Frankfurter](https://frankfurter.dev) | Free, no key | Exchange rates for display |
-| [OpenStreetMap](https://www.openstreetmap.org) tiles | Free for light use | The map, darkened with a CSS filter |
+| Source                                                        | Cost                          | Used for                                                                                                                    |
+| ------------------------------------------------------------- | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| [Xotelo](https://xotelo.com)                                   | Free, no key                  | Hotel list per city, TripAdvisor rating and review count, live nightly rates from several booking sites, cheap-day calendar |
+| [SerpApi Google Hotels](https://serpapi.com/google-hotels-api) | Optional key, small free plan | Google rating and review count, per-site prices, amenities, star class                                                      |
+| [Frankfurter](https://frankfurter.dev)                         | Free, no key                  | Exchange rates for display                                                                                                  |
+| [OpenStreetMap](https://www.openstreetmap.org) tiles           | Free for light use            | The map, darkened with a CSS filter                                                                                         |
 
 The app does **not** scrape Booking.com, Agoda, Expedia or Google. Their terms forbid it, they block bots aggressively, and it would make this repo a liability for anyone who forks it. Every source above is a public API used within its terms. More detail, including the limits of each source, is in [docs/data-sources.md](docs/data-sources.md).
 

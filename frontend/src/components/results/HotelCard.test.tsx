@@ -66,6 +66,12 @@ describe("HotelCard", () => {
     expect(screen.getByText("checking your dates")).toBeInTheDocument();
   });
 
+  it("says plainly when no site has rooms for the dates", () => {
+    renderCard({ price: null, value: null, unavailable: true });
+    expect(screen.getByText("No rooms listed for these dates")).toBeInTheDocument();
+    expect(screen.queryByLabelText(/Value/)).toBeNull();
+  });
+
   it("never renders an unsafe image URL", () => {
     renderCard();
     expect(document.querySelector("img")).toBeNull();

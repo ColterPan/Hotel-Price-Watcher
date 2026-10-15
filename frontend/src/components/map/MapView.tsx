@@ -75,7 +75,7 @@ function pinIcon(state: PinState): L.DivIcon {
 }
 
 function pinLabel(view: HotelView, formatPrice: (usd: number) => string): string {
-  if (!view.price) return "?";
+  if (!view.price) return view.unavailable ? "n/a" : "?";
   return `${view.price.kind === "typical" ? "~" : ""}${formatPrice(view.price.nightlyUsd)}`;
 }
 
