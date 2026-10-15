@@ -55,6 +55,7 @@ class Watch(BaseModel):
     currency: str
     active: bool
     created_at: datetime
+    needs_baseline: bool
     last_checked_at: datetime | None
     last_status: str | None
     last_price: Decimal | None

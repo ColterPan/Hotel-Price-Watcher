@@ -45,9 +45,24 @@ export function LocationField({ value, onChange }: LocationFieldProps) {
     } else if (event.key === "ArrowUp") {
       event.preventDefault();
       setActive((i) => Math.max(i - 1, 0));
-    } else if (event.key === "Enter" && open && items[active]) {
+    } else if (event.key === "Enter" && open && text.trim()) {
       event.preventDefault();
-      choose(items[active]);
+      // The list can still show results for what was typed a moment ago
+      // (the lookup is debounced). Never pick from a stale list: ask for the
+      // current text and take its best match.
+      const fresh = debounced === text && suggestions.isSuccess && !suggestions.isFetching;
+      if (fresh) {
+        if (items[active]) choose(items[active]);
+        return;
+      }
+      void api
+        .locations(text)
+        .then((matches) => {
+          if (matches[0]) choose(matches[0]);
+        })
+        .catch(() => {
+          // Leave the list open; the user can still click a suggestion.
+        });
     } else if (event.key === "Escape") {
       setOpen(false);
     }

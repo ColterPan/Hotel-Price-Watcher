@@ -40,9 +40,9 @@ async def check_watch(
 
     stay = watch.to_stay()
     historical_min = repository.get_historical_min(conn, stay)
-    # Read before this check records its own price. A failed earlier check
-    # recorded nothing, so the next successful one still counts as the first.
-    first_check = not repository.watch_has_prices(conn, watch.id)
+    # Read the flag from the database, not from `watch`, which may be stale.
+    stored = repository.get_watch(conn, watch.id)
+    first_check = stored.needs_baseline if stored else watch.needs_baseline
     outcome, _ = await rates.rates(stay, use_cache=False)
     cheapest = outcome.cheapest
     if outcome.status != "ok" or cheapest is None:

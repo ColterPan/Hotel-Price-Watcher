@@ -9,11 +9,30 @@ from __future__ import annotations
 import sqlite3
 from pathlib import Path
 
+from hotel_watcher.logging_config import get_logger
+
+logger = get_logger(__name__)
+
 _SCHEMA_PATH = Path(__file__).parent / "schema.sql"
+
+#: Columns added after the first release. schema.sql creates them for a new
+#: database; this adds them to an existing one so its history is kept.
+_ADDED_COLUMNS: dict[str, dict[str, str]] = {
+    "watches": {"needs_baseline": "INTEGER NOT NULL DEFAULT 0"},
+}
 
 #: The background watcher and a user's request can write at the same moment.
 #: Waiting this long for the lock beats failing with "database is locked".
 _BUSY_TIMEOUT_MS = 5000
+
+
+def _apply_migrations(conn: sqlite3.Connection) -> None:
+    for table, columns in _ADDED_COLUMNS.items():
+        present = {row["name"] for row in conn.execute(f"PRAGMA table_info({table})")}
+        for column, definition in columns.items():
+            if column not in present:
+                logger.info("migrating: adding %s.%s", table, column)
+                conn.execute(f"ALTER TABLE {table} ADD COLUMN {column} {definition}")
 
 
 def connect(database_path: str) -> sqlite3.Connection:
@@ -31,5 +50,6 @@ def connect(database_path: str) -> sqlite3.Connection:
     if database_path != ":memory:":
         conn.execute("PRAGMA journal_mode = WAL")
     conn.executescript(_SCHEMA_PATH.read_text(encoding="utf-8"))
+    _apply_migrations(conn)
     conn.commit()
     return conn

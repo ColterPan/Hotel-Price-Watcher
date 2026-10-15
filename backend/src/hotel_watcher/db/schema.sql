@@ -16,6 +16,9 @@ CREATE TABLE IF NOT EXISTS watches (
     currency        TEXT    NOT NULL DEFAULT 'USD',
     active          INTEGER NOT NULL DEFAULT 1,
     created_at      TEXT    NOT NULL,
+    -- 1 after every add, re-add or target change, until a check records a price.
+    -- The first price after that is the baseline, and can only hit the target.
+    needs_baseline  INTEGER NOT NULL DEFAULT 0,
     last_checked_at TEXT,
     last_status     TEXT,
     last_price      TEXT,

@@ -85,7 +85,8 @@ The price used is the live price for your dates once it has loaded. Until then i
 
 Code: `backend/src/hotel_watcher/watch/threshold.py`
 
-- The first check of a new watch sets the baseline. It only alerts if you set a target and the price is already at or under it.
+- The first check of a new watch sets the baseline. It only alerts if you set a target and the price is already at or under it. Re-adding a watch you removed, or saving it again with a new target, starts a fresh baseline the same way, so a target that is already met is always announced once.
+- Prices you saw while browsing before you watched the hotel don't stop that first target alert.
 - After that, an alert fires when the price is a **new all-time low for that exact stay** (hotel, dates and number of adults). With a target set, the new low also has to be at or under the target.
 - A price that is low but not a new low never alerts again, so the same deal isn't announced on every check.
 - All comparisons use the USD price from the provider, never a converted one, so currency movements can't trigger fake "drops".

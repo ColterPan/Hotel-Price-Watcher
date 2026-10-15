@@ -101,6 +101,18 @@ async def test_failed_first_check_does_not_use_up_the_first_check(conn):
     assert result.alert_kind == "target_hit"
 
 
+async def test_re_adding_a_removed_watch_starts_a_fresh_baseline(conn):
+    watch = _create(conn, target="350")
+    first = await check_watch(conn, watch, ScriptedRates(["300"]))
+    assert first.alert_kind == "target_hit"
+    repository.deactivate_watch(conn, watch.id)
+
+    again = _create(conn, target="350")  # same stay, so the same row comes back
+    assert again.id == watch.id
+    result = await check_watch(conn, again, ScriptedRates(["300"]))
+    assert result.alert_kind == "target_hit"
+
+
 async def test_stay_in_the_past_is_not_checked(conn):
     watch = _create(conn)
     rates = ScriptedRates([])

@@ -86,12 +86,6 @@ def get_historical_min(conn: sqlite3.Connection, stay: StayQuery) -> Decimal | N
     return Decimal(row["nightly"]) if row else None
 
 
-def watch_has_prices(conn: sqlite3.Connection, watch_id: int) -> bool:
-    """Whether a check of this watch has ever recorded a price."""
-    row = conn.execute("SELECT 1 FROM price_observations WHERE watch_id = ? LIMIT 1", (watch_id,)).fetchone()
-    return row is not None
-
-
 def get_history(conn: sqlite3.Connection, stay: StayQuery, limit: int = 200) -> list[PricePoint]:
     rows = conn.execute(
         """
@@ -134,6 +128,7 @@ def _row_to_watch(row: sqlite3.Row) -> Watch:
         currency=row["currency"],
         active=bool(row["active"]),
         created_at=datetime.fromisoformat(row["created_at"]),
+        needs_baseline=bool(row["needs_baseline"]),
         last_checked_at=_dt(row["last_checked_at"]),
         last_status=row["last_status"],
         last_price=_dec(row["last_price"]),
@@ -142,17 +137,22 @@ def _row_to_watch(row: sqlite3.Row) -> Watch:
 
 
 def create_watch(conn: sqlite3.Connection, data: WatchCreate, now: datetime | None = None) -> Watch:
-    """Create a watch, or reactivate and update the existing one for the same stay."""
+    """Create a watch, or reactivate and update the existing one for the same stay.
+
+    Either way the watch starts a fresh baseline (`needs_baseline`), so a target
+    that is already met is announced again after a re-add or a target change.
+    """
     now = now or utc_now()
     target = str(data.target_price) if data.target_price is not None else None
     conn.execute(
         """
         INSERT INTO watches
             (hotel_key, hotel_name, location_name, latitude, longitude, image_url, hotel_url,
-             check_in, check_out, adults, target_price, currency, active, created_at)
-        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?)
+             check_in, check_out, adults, target_price, currency, active, created_at, needs_baseline)
+        VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1, ?, 1)
         ON CONFLICT (hotel_key, check_in, check_out, adults) DO UPDATE SET
             active = 1,
+            needs_baseline = 1,
             target_price = excluded.target_price,
             hotel_name = excluded.hotel_name,
             image_url = COALESCE(excluded.image_url, watches.image_url),
@@ -215,10 +215,19 @@ def update_watch_check_result(
             last_checked_at = ?,
             last_status = ?,
             last_price = COALESCE(?, last_price),
-            last_site = COALESCE(?, last_site)
+            last_site = COALESCE(?, last_site),
+            -- A recorded price is the baseline; a failed check keeps waiting for one.
+            needs_baseline = CASE WHEN ? IS NULL THEN needs_baseline ELSE 0 END
         WHERE id = ?
         """,
-        (now.isoformat(), status, str(price) if price is not None else None, site, watch_id),
+        (
+            now.isoformat(),
+            status,
+            str(price) if price is not None else None,
+            site,
+            str(price) if price is not None else None,
+            watch_id,
+        ),
     )
     conn.commit()
 
